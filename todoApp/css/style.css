@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  
+}
+header img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+#form__to-do-app {
+  margin: 0 auto;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+#form__add-task {
+  margin-bottom: 20px;
+}
+#form__add-task h2 {
+  margin: 0;
+  padding: 0;
+}
+#form__add-task form {
+  display: flex;
+  justify-content: space-evenly;
+}
+#form__add-task input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#form__add-task input[type="text"] {
+  width: 60%;
+}
+#form__add-task input[type="button"] {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#form__add-task input[type="button"]:hover {
+  background-color: #555;
+}
+#tasks {
+  margin-bottom: 10px;
+}
+#tasks h2 {
+  margin: 0;
+  padding: 0;
+}
+#task__element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+#task__element input[type="checkbox"] {
+  cursor: pointer;
+}
+#task__element input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+}
+#task__element input[type="checkbox"]:checked + label::after {
+  content: '✔'; /* Dấu tick */
+  color: green;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+#task__element input[type="button"] {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#task__element input[type="button"]:hover {
+  background-color: #555;
+}
+#list__tasks {
+  list-style-type: none;
+  padding: 0;
+}
+#list__tasks li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+#list__tasks li span {
+  cursor: pointer;
+}
+#filter {
+  margin-bottom: 10px;
+}
+#filter select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#log-out {
+  text-align: center;
+}
+#log-out input[type="button"] {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#log-out input[type="button"]:hover {
+  background-color: #555;
+}

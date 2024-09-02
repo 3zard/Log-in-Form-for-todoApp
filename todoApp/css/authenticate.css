@@ -1,0 +1,67 @@
+.form__authenticate {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 5%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.form__authenticate h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.form__authenticate span {
+    font-size: 15px;
+    color: #888;
+}
+.form__authenticate hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.form__authenticate form {
+    text-align: left;
+}
+.form__authenticate h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.form__authenticate input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form__authenticate input[type="text"] {
+    width: 95%;
+}
+.form__authenticate input[type="password"] {
+    width: 95%;
+}
+.form__authenticate input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.form__authenticate input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.form__authenticate a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+.form__authenticate a:hover {
+    text-decoration: underline;
+}
+.form__authenticate input[type="checkbox"] {
+    width: 10%;
+}
+.form__authenticate label {
+    font-size: 15px;
+}
