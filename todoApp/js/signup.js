@@ -40,3 +40,17 @@ document.getElementById("form__sign-up").addEventListener("submit", function(eve
     alert('Registered successfully');
     window.location.href = "login.html";
 });
+
+window.addEventListener('load', function() {
+    let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || JSON.parse(sessionStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+        autoLogIn(loggedInUser.username);
+    }
+})
+
+function autoLogIn(username) {
+    let isAuthorized = accounts.some((accounts) => accounts.username === username)
+    if (isAuthorized) {
+        window.location.href = "index.html";
+    }
+}
