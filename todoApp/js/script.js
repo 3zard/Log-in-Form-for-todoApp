@@ -54,7 +54,7 @@ function addTasks() {
         return;
     }
     tasks.unshift({id: generateRandomId(), name: task, completed : false, owner: owner});
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
     document.getElementById("input__task").value = "";
     renderTasks(tasks);
     resetFilterStatus();
@@ -77,14 +77,14 @@ function editTask(id) {
         }
         return task;
     });
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
     renderTasks(tasks);
     resetFilterStatus();
 }
 
 function deleteTask(id) {
     tasks = tasks.filter((task) => task.id !== id && task.owner === owner);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
     renderTasks(tasks);
     resetFilterStatus();
 }
@@ -96,7 +96,7 @@ function toggleStatus(id) {
         }
         return task;
     });
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
     renderTasks(tasks);
     resetFilterStatus();
 }
@@ -151,8 +151,8 @@ window.addEventListener('load', function(event) {
     }
     this.document.getElementById("greeting").innerText = `Hello, ${user.username}!`;
     owner = user.username;
-    if (localStorage.getItem('tasks')) {
-        tasks = JSON.parse(localStorage.getItem('tasks'));
+    if (localStorage.getItem(`tasks_${owner}`)) {
+        tasks = JSON.parse(localStorage.getItem(`tasks_${owner}`));
     }
     else {
         tasks = [];
