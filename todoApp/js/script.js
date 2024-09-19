@@ -1,19 +1,20 @@
 // task format: {id: string, name: string, completed: boolean, owner: string}
 let tasks;
 let owner;
-// Functions
+// Utils
 function generateRandomId() {
     return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).substr(2, 9);
 }
 
 function resetFilterStatus() {
-    document.getElementById("filter__task-status").value = "all";
+    let status = document.getElementById("filter__task-status");
+    status.value = "all";
 }
 
 function renderTasks(tasks) {
     const taskList = document.getElementById("list__tasks");
     taskList.innerHTML = "";
-    tasks.forEach((task, index) => {
+    tasks.forEach((task) => {
         if (task.owner !== owner) {
             return;
         }
@@ -54,7 +55,7 @@ function addTasks() {
         return;
     }
     tasks.unshift({id: generateRandomId(), name: task, completed : false, owner: owner});
-    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     document.getElementById("input__task").value = "";
     renderTasks(tasks);
     resetFilterStatus();
@@ -77,14 +78,14 @@ function editTask(id) {
         }
         return task;
     });
-    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks(tasks);
     resetFilterStatus();
 }
 
 function deleteTask(id) {
     tasks = tasks.filter((task) => task.id !== id && task.owner === owner);
-    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks(tasks);
     resetFilterStatus();
 }
@@ -96,7 +97,7 @@ function toggleStatus(id) {
         }
         return task;
     });
-    localStorage.setItem(`tasks_${owner}`, JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks(tasks);
     resetFilterStatus();
 }
@@ -151,8 +152,8 @@ window.addEventListener('load', function(event) {
     }
     this.document.getElementById("greeting").innerText = `Hello, ${user.username}!`;
     owner = user.username;
-    if (localStorage.getItem(`tasks_${owner}`)) {
-        tasks = JSON.parse(localStorage.getItem(`tasks_${owner}`));
+    if (localStorage.getItem("tasks")) {
+        tasks = JSON.parse(localStorage.getItem("tasks"));
     }
     else {
         tasks = [];
