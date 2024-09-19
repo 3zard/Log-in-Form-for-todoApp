@@ -1,11 +1,10 @@
-var accounts = JSON.parse(localStorage.getItem('accounts')) || [];
-console.log(accounts);
+let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
 
-document.getElementById("form__log-in").addEventListener('submit', function(event){
+document.getElementById("form__log-in").addEventListener('submit', function(event) {
     event.preventDefault();
 
-    let enteredUsername = document.getElementById("username__login").value;
-    let enteredPassword = document.getElementById("password__login").value;
+    const enteredUsername = document.getElementById("username__login").value;
+    const enteredPassword = document.getElementById("password__login").value;
 
     if (enteredUsername === '' && enteredPassword === '') {
         alert('Please enter Username and Password');
